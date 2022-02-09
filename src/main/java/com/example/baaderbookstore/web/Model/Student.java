@@ -1,4 +1,4 @@
-package Models;
+package com.example.baaderbookstore.web.Model;
 
 public class Student {
     public Student(String firstName, String lastName){

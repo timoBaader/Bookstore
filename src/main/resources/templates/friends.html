@@ -11,9 +11,9 @@
 </ul>
 
 
-<form action="#" th:action="@{/friends}" th:object="${friend} method="post">
+<form action="#" th:action="@{/friends}" th:object="${friend}" method="POST">
     <p>Add friend: <input type="text" th:field="*{name}"/></p>
-    <p><input type="submit"value="Submit"/></p>
+    <p><input type="submit" value="Submit"/></p>
 </form>
 
 </body>

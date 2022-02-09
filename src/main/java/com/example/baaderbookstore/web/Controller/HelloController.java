@@ -1,4 +1,4 @@
-package com.example.baaderbookstore.web;
+package com.example.baaderbookstore.web.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,6 +1,6 @@
-package com.example.baaderbookstore.web;
+package com.example.baaderbookstore.web.Controller;
 
-import Models.Student;
+import com.example.baaderbookstore.web.Model.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

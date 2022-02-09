@@ -1,13 +1,9 @@
-package com.example.baaderbookstore.web;
+package com.example.baaderbookstore.web.Controller;
 
-import Models.Friend;
-import Models.Student;
+import com.example.baaderbookstore.web.Model.Friend;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +19,8 @@ public class FriendController {
         friendList.add(new Friend("Hans Hansen"));
 
         model.addAttribute(friendList);
+
+        model.addAttribute("friend", new Friend());
         return "friends.html";
     }
 
@@ -33,6 +31,6 @@ public class FriendController {
 
 
         //result??
-        return "result";
+        return "redirect:/result";
     }
 }
