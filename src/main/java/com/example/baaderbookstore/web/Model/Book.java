@@ -1,5 +1,7 @@
 package com.example.baaderbookstore.web.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,6 +17,19 @@ public class Book {
     private int year;
     private String isbn;
     private double price;
+
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "categoryId")
+    private Category category;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     public Book() {
 

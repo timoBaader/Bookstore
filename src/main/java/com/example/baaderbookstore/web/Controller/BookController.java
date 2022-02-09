@@ -2,6 +2,7 @@ package com.example.baaderbookstore.web.Controller;
 
 import com.example.baaderbookstore.web.Model.Book;
 import com.example.baaderbookstore.web.Repository.BookRepository;
+import com.example.baaderbookstore.web.Repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,9 @@ public class BookController {
     @Autowired
     private BookRepository bookRepository;
 
+    @Autowired
+    private CategoryRepository categoryRepository;
+
     @RequestMapping(value = {"/booklist", "/"})
     public String listBooks(Model model) {
         model.addAttribute("books", bookRepository.findAll());
@@ -25,6 +29,7 @@ public class BookController {
     @RequestMapping("/add")
     public String addBook(Model model) {
         model.addAttribute("book", new Book());
+        model.addAttribute("categories", categoryRepository.findAll());
         return "addbook.html";
     }
 
@@ -38,6 +43,13 @@ public class BookController {
     public String deleteStudent(@PathVariable("id") Long bookId, Model model) {
         bookRepository.deleteById(bookId);
         return "redirect:../booklist";
+    }
+
+    @RequestMapping("/edit/{id}")
+    public String editBook(@PathVariable("id") Long bookId, Model model) {
+        model.addAttribute("book", bookRepository.findById(bookId));
+        model.addAttribute("categories", categoryRepository.findAll());
+        return "editbook.html";
     }
 
 }
