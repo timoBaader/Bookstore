@@ -1,6 +1,7 @@
 package com.example.baaderbookstore.web.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 
@@ -19,7 +20,7 @@ public class Book {
     private double price;
 
     @ManyToOne
-    @JsonIgnore
+    @JsonManagedReference
     @JoinColumn(name = "categoryId")
     private Category category;
 
@@ -37,6 +38,15 @@ public class Book {
 
     public Book(String title) {
         this.title = title;
+    }
+
+    public Book(String title, String author, String isbn, Integer year, Double price, Category category) {
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+        this.year = year;
+        this.price = price;
+        this.category = category;
     }
 
     public String getTitle() {

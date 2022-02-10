@@ -28,7 +28,7 @@ public class BaaderbookstoreApplication {
 
 
             Category category2 = new Category("Fantasy");
-            
+
 
             categoryRepository.save(category);
             categoryRepository.save(category2);
@@ -48,7 +48,7 @@ public class BaaderbookstoreApplication {
             book2.setPrice(9.90);
             book2.setTitle("How to change your mind");
             book2.setYear(1992);
-            book.setCategory(category2);
+            book2.setCategory(category2);
 
             Book book3 = new Book();
             book3.setAuthor("Aldous Huxley");
@@ -56,7 +56,7 @@ public class BaaderbookstoreApplication {
             book3.setPrice(12);
             book3.setTitle("The doors of perception");
             book3.setYear(1971);
-            book.setCategory(category2);
+            book3.setCategory(category2);
 
 
             bookRepository.save(book);
